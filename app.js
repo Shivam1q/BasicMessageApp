@@ -1,12 +1,19 @@
 const express = require('express');
+const { messages } = require('./index.js')
 
 const app = express();
-
 const PORT = 3000;
 
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 app.get('/', ( req, res ) => {
-  res.send("Hello World!");
-})
+  res.render("index", {title: "Mini Messageboard", messages: messages});
+});
+
+app.get('/new', (req, res) => {
+
+});
 
 
 
